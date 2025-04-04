@@ -1,0 +1,15 @@
+/target
+**/*.rs.bk
+Cargo.lock
+*.log
+*.tmp
+*.swp
+.idea/
+.vscode/
+.DS_Store
+/tests/target
+.env
+.env.local
+*.iml
+.env.prod
+*.env

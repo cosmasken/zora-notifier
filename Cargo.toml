@@ -1,0 +1,16 @@
+[package]
+name = "zora-notify-bot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serenity = { version = "0.12", features = ["framework", "standard_framework"] } # Discord API crate
+reqwest = { version = "0.11", features = ["json"] }  # For Zora API calls
+tokio = { version = "1.0", features = ["full"] }  # Async runtime
+serde = { version = "1.0", features = ["derive"] }  # JSON parsing
+serde_json = "1.0"
+dotenv = "0.15"  
+log = "0.4"
+env_logger = "0.10"
+warp = "0.3"
+ethers = { version = "2.0.14", features = ["abigen", "tokio"] }
