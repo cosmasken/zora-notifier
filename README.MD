@@ -1,3 +1,5 @@
+NOTE : Render's free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
+
 # Zora Notify Bot
 
 Zora Notify Bot is a Discord bot that interacts with the Zora API and Ethereum blockchain to notify users about new coins, top gainers, and even create new tokens directly from Discord.
