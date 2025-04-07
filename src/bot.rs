@@ -401,36 +401,36 @@ impl EventHandler for Handler {
             //         }
             //     }
             // }
-            _ if content.starts_with("!create_token") {
-                let args: Vec<&str> = content.split_whitespace().collect();
-                if args.len() < 5 {
-                    let _ = msg.reply(&ctx.http, "Usage: !create_token <name> <symbol> <uri> <payout_recipient>").await;
-                    return;
-                }
-    
-                let name = args[1].to_string();
-                let symbol = args[2].to_string();
-                let uri = args[3].to_string();
-                let payout_recipient: Address = args[4].parse().expect("Invalid Ethereum address");
-    
-                let params = CoinParams {
-                    name,
-                    symbol,
-                    uri,
-                    payout_recipient,
-                    platform_referrer: None,
-                    initial_purchase_wei: U256::zero(),
-                };
-    
-                match create_coin(params).await {
-                    Ok(receipt) => {
-                        let _ = msg.reply(&ctx.http, format!("Token created successfully! Transaction hash: {:?}", receipt.transaction_hash)).await;
-                    }
-                    Err(error) => {
-                        let _ = msg.reply(&ctx.http, format!("Failed to create token: {}", error)).await;
-                    }
-                }
-            }
+            // _ if content.starts_with("!create_token") {
+            //     let args: Vec<&str> = content.split_whitespace().collect();
+            //     if args.len() < 5 {
+            //         let _ = msg.reply(&ctx.http, "Usage: !create_token <name> <symbol> <uri> <payout_recipient>").await;
+            //         return;
+            //     }
+            //
+            //     let name = args[1].to_string();
+            //     let symbol = args[2].to_string();
+            //     let uri = args[3].to_string();
+            //     let payout_recipient: Address = args[4].parse().expect("Invalid Ethereum address");
+            //
+            //     let params = CoinParams {
+            //         name,
+            //         symbol,
+            //         uri,
+            //         payout_recipient,
+            //         platform_referrer: None,
+            //         initial_purchase_wei: U256::zero(),
+            //     };
+            //
+            //     match create_coin(params).await {
+            //         Ok(receipt) => {
+            //             let _ = msg.reply(&ctx.http, format!("Token created successfully! Transaction hash: {:?}", receipt.transaction_hash)).await;
+            //         }
+            //         Err(error) => {
+            //             let _ = msg.reply(&ctx.http, format!("Failed to create token: {}", error)).await;
+            //         }
+            //     }
+            // }
             _ => {}
         }
     }
